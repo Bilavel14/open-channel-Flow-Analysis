@@ -13,8 +13,8 @@ If water flows too fast (> 2.0 m/s), it damages the channel (erosion).
 
 We need to find the safe speed in between.
 
-2. Manning’s Equation (The Math Behind It)
-We use a simple formula to calculate water speed:
+2. Manning’s Equation 
+A simple formula to calculate water speed:
 
 Velocity = (1 / Roughness) × (Hydraulic Radius)^(2/3) × (Slope)^(1/2)
 
@@ -23,3 +23,19 @@ Roughness (n): How smooth or rough the channel is (e.g., concrete = 0.013, dirt 
 Hydraulic Radius (R): Flow area divided by the wet perimeter (bigger = faster flow).
 
 Slope (S): How steep the channel is (steeper = faster water).
+
+Using Python for further analysis 
+
+Core Velocity Calculation Using Manning’s Equation
+def calculate_flow_speed(roughness, hydraulic_radius, slope):  
+    # Manning's equation  
+    velocity = (1 / roughness) * (hydraulic_radius ** (2/3)) * (slope ** 0.5)  
+    return velocity  
+
+# Example: Concrete channel (n=0.013), R=1.1, slope=0.001  
+n = 0.013  
+R = 1.1  
+S = 0.001  
+
+V = calculate_flow_speed(n, R, S)  
+print(f"Flow speed: {V:.2f} m/s")  
